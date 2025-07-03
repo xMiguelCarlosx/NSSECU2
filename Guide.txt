@@ -1,0 +1,10 @@
+Group 4 - Keylogger    
+The objective of this project is to develop a basic software keylogger that records keyboard inputs on a controlled lab machine. The purpose is to understand how keyloggers operate and the security risks they pose, as well as methods to detect and mitigate such threats.
+Functional Requirements:
+1.The keylogger must capture all printable keystrokes entered by the user in real time.,
+2.Each captured keystroke should be logged to a local file (for example, keylog.txt) along with a timestamp indicating when the key was pressed.,
+3.The tool should operate quietly in the background without interrupting normal keyboard usage or displaying active windows.,
+4.The keylogger must include a method to safely stop the logging process, such as a configurable hotkey (e.g., Ctrl+Shift+Q).,
+5.Each logging session must be clearly marked in the log file with identifiers such as [SESSION START] and [SESSION END].,
+6.The tool must be designed and tested to run only on authorized lab virtual machines or sandbox environments.,
+7.The program must handle errors gracefully and provide meaningful messages if it encounters issues accessing the keyboard input.
