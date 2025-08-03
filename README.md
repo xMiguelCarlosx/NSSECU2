@@ -19,7 +19,8 @@
 # Installation and Usage
 
     Required dependencies:
-     > pip instal pynput
+     > python @ https://www.python.org/downloads/
+     > pip install pynput
 
     Installation:
     1. Download zip file in Github
