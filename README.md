@@ -1,5 +1,5 @@
 # NSSECU2 Hacking Tool : Keylogger
-    [Threat Level Base Score : 7.8 (High)]
+    [Threat Level Base Score : 6.1 (Medium)]
     - Uses Tkinter for authorized use
     - Background keystroke logging with timestamps
     - Hotkey (Ctrl+Shift+Q) to stop keylogging
