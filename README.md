@@ -7,13 +7,13 @@
     > Disclaimer : Must be used in sandbox enviroments only, Stay safe and Ethical!
 
 # Requirement Features
-    1. The keylogger must capture all printable keystrokes entered by the user in real time.
-    2. Each captured keystroke should be logged to a local file (e.g., `keylog.txt`) along with a timestamp.
-    3. The tool should operate quietly in the background without interrupting normal keyboard usage or displaying windows.
-    4. The keylogger must include a method to safely stop the logging process, such as a configurable hotkey (e.g., `Ctrl+Shift+Q`).
-    5. Each logging session must be clearly marked in the log file with identifiers such as `[SESSION START]` and `[SESSION END]`.
-    6. The tool must be designed and tested to run only on authorized lab virtual machines or sandbox environments.
-    7. The program must handle errors gracefully and provide meaningful messages if it encounters issues accessing the keyboard input.
+    1. Captures all printable keystrokes in real time.  
+    2. Logs keystrokes to keylog.txt with timestamps.  
+    3. Runs silently in the background.  
+    4. Can be safely stopped via (Ctrl+Shift+Q) hotkey.  
+    5. Marks sessions with [SESSION START] and [SESSION END].  
+    6. Designed for authorized lab/sandbox use only.  
+    7. Handles errors gracefully with clear messages.  
 
 
 # Installation and Usage
@@ -22,7 +22,7 @@
      > pip instal pynput
 
     Installation:
-    1. Download zip rile in Github
+    1. Download zip file in Github
     2. Clone repository in bash
 
     Usage: 
